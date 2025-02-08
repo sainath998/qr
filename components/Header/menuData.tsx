@@ -7,24 +7,14 @@ const menuData: Menu[] = [
     newTab: false,
     path: "/",
   },
+
   {
     id: 2,
-    title: "Features",
+    title: "Genrate QR",
     newTab: false,
-    path: "/#features",
+    path: "/generate",
   },
-  {
-    id: 2.1,
-    title: "Blog",
-    newTab: false,
-    path: "/blog",
-  },
-  {
-    id: 2.3,
-    title: "Docs",
-    newTab: false,
-    path: "/docs",
-  },
+
   {
     id: 3,
     title: "Pages",
@@ -54,12 +44,7 @@ const menuData: Menu[] = [
         newTab: false,
         path: "/docs",
       },
-      {
-        id: 35.1,
-        title: "Support",
-        newTab: false,
-        path: "/support",
-      },
+ 
       {
         id: 36,
         title: "404",
@@ -71,9 +56,9 @@ const menuData: Menu[] = [
 
   {
     id: 4,
-    title: "Support",
+    title: "contact us",
     newTab: false,
-    path: "/support",
+    path: "/contact",
   },
 ];
 

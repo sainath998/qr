@@ -4,14 +4,34 @@ import Image from "next/image";
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 
+import { handleLogin } from '@/utils/auth';
+
 import { jwtDecode } from "jwt-decode";
 
 const handleGoogleResponse = async (res) => {
   const user = jwtDecode(res.credential);
-  console.log('user is ',user);
-  // const url = `${baseUrl}/api/users/googleSignin`;
-  // const response = await axios.post(url, { ...user });
-  // handleLogin(response.data.elarniv_users_token, router);
+
+  // check if user exists in the database
+  // if user exists, redirect to the dashboard
+
+  const response = await fetch("http://localhost:3000/api/auth/user", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user,
+    }),
+  });
+
+  const data = await response.json(); // Extract JSON response
+
+  // set it in cookie
+  console.log("response is ", data);
+  handleLogin(data.user_token)
+
+
+  
 };
 
 const Signin = () => {
@@ -22,7 +42,6 @@ const Signin = () => {
 
   // const router = useRouter();
 
-  
   return (
     <>
       {/* <!-- ===== SignIn Form Start ===== --> */}
@@ -63,18 +82,18 @@ const Signin = () => {
             className="animate_top rounded-lg bg-white px-7.5 pt-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black xl:px-15 xl:pt-15"
           >
             <h2 className="mb-15 text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-            <GoogleLogin
-          onSuccess={async (res) => {
-            await handleGoogleResponse(res);
-          }}
-          onFailure={(err) => {
-            alert('something went wrong')
-            // Handle the Google login error here.
-            // For example, you can show an error message to the user.
-          }}
-          cookiePolicy="single_host_origin"
-          isSignedIn={true}
-        />
+              <GoogleLogin
+                onSuccess={async (res) => {
+                  await handleGoogleResponse(res);
+                }}
+                onFailure={(err) => {
+                  alert("something went wrong");
+                  // Handle the Google login error here.
+                  // For example, you can show an error message to the user.
+                }}
+                cookiePolicy="single_host_origin"
+                isSignedIn={true}
+              />
             </h2>
             <div className="flex flex-col">
               <div className="flex items-center gap-8">
@@ -117,10 +136,8 @@ const Signin = () => {
                   </span>
                   Signup with Google
                 </button>
-
               </div>
             </div>
-      
           </motion.div>
         </div>
       </section>

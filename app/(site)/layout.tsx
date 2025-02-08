@@ -13,6 +13,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ToasterContext from "../context/ToastContext";
 
 
+import {getUserDetails} from '@/utils/auth';
+
 const clientId =
   "561932436702-5h1ci89mosgjdu6j1sraokaip98qvbnv.apps.googleusercontent.com";
 
@@ -23,6 +25,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const userDetails = getUserDetails();
+  console.log('userDetails', userDetails);
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>

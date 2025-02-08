@@ -7,10 +7,17 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
+import { getUserDetails } from "@/utils/auth";
+
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
+
+const userDetails = getUserDetails();
+
+              // @ts-ignore
+const isLogged = userDetails?.email ? true : false;
 
   const pathUrl = usePathname();
 
@@ -22,6 +29,8 @@ const Header = () => {
       setStickyMenu(false);
     }
   };
+
+  console.log('userDetails?.profile_photo',userDetails?.profile_photo)
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
@@ -154,19 +163,18 @@ const Header = () => {
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
 
-            <Link
-              href="https://github.com/NextJSTemplates/solid-nextjs"
-              className="text-regular font-medium text-waterloo hover:text-primary"
-            >
-              GitHub Repo 🌟
-            </Link>
-
-            <Link
+            {!isLogged?(<Link
               href="/auth/signin"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              Signin
-            </Link>
+              Sign in
+            </Link>):(
+              // @ts-ignore
+              <>
+              {/* @ts-ignore */}
+              <img src={userDetails?.profile_photo} alt="user" width={24} height={24} />
+              </>
+            )}
           </div>
         </div>
       </div>

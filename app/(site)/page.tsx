@@ -10,8 +10,8 @@ import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
-import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
+import { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
+
+
   return (
     <main>
       <Hero />
@@ -35,7 +38,6 @@ export default function Home() {
       <Testimonial />
       <Pricing />
       <Contact />
-      <Blog />
     </main>
   );
 }
