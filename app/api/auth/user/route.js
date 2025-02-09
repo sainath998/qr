@@ -24,7 +24,8 @@ export async function POST(req) {
 
     const user_token = jwt.sign(
       {
-        userId: user.id,
+        // random unique id
+        id: user._id,
         first_name: user.first_name,
         last_name: user.last_name,
         email: user.email,
@@ -32,14 +33,12 @@ export async function POST(req) {
         profile_photo: user.picture,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
- 
-    console.log('user_token',user_token)
-    
-    
-    return Response.json({ success: true, user,user_token }, { status: 201 });
+    console.log("user_token", user_token);
+
+    return Response.json({ success: true, user, user_token }, { status: 201 });
   } catch (error) {
     console.error("❌ Error:", error.message);
     return Response.json(

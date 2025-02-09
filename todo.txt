@@ -1,0 +1,7 @@
+1. add subsctiption for montlhy/currently we are using plans
+
+2.clean ui for /generate qr
+
+3. user -> savedQrs (can save multiple qrs and track them).
+    dashboard for user where he can see all qrs.
+    saperate qr edit page(similar to qr create page but for editing).

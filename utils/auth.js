@@ -3,15 +3,15 @@ import Router from "next/router";
 import { parseCookies } from "nookies";
 import { jwtDecode } from "jwt-decode";
 
-
-
 export const getUserDetails = () => {
-  const {user_token} = parseCookies();
-  if(!user_token){
+  const { user_token } = parseCookies();
+  if (!user_token) {
     return null;
   }
+  console.log("jwtDecode(user_token)", jwtDecode(user_token));
+
   return jwtDecode(user_token);
-}
+};
 
 export const handleLogin = (t, routeNext) => {
   cookie.set("user_token", t);
@@ -21,15 +21,13 @@ export const handleLogin = (t, routeNext) => {
   //   Router.push("/");
   // }
   // Router.push("/");
-  // window.location.href = "/";
-
+  window.location.href = "/";
 };
 
 export const handleLogout = () => {
   cookie.remove("user_token");
   // Router.push("/");
-  
-};  
+};
 
 export const destroyCookie = () => {
   cookie.remove("user_token");

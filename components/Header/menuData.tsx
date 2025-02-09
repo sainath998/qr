@@ -15,6 +15,7 @@ const menuData: Menu[] = [
     path: "/generate",
   },
 
+
   {
     id: 3,
     title: "Pages",
@@ -56,6 +57,13 @@ const menuData: Menu[] = [
 
   {
     id: 4,
+    title: "Pricing",
+    newTab: false,
+    path: "/pricing",
+  },
+  
+  {
+    id: 5,
     title: "contact us",
     newTab: false,
     path: "/contact",

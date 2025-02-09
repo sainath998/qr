@@ -1,3 +1,5 @@
+"use client"
+
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Brands from "@/components/Brands";
@@ -13,12 +15,12 @@ import Contact from "@/components/Contact";
 import Testimonial from "@/components/Testimonial";
 import { useEffect } from "react";
 
-export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
+// export const metadata: Metadata = {
+//   title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
 
-  // other metadata
-  description: "This is Home for Solid Pro"
-};
+//   // other metadata
+//   description: "This is Home for Solid Pro"
+// };
 
 export default function Home() {
 

@@ -1,5 +1,6 @@
 "use client";
 
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Lines from "@/components/Lines";
@@ -14,6 +15,7 @@ import ToasterContext from "../context/ToastContext";
 
 
 import {getUserDetails} from '@/utils/auth';
+
 
 const clientId =
   "561932436702-5h1ci89mosgjdu6j1sraokaip98qvbnv.apps.googleusercontent.com";
