@@ -5,7 +5,6 @@ import User from "@/models/User"; // Ensure your User model is correctly importe
 export async function POST(request) {
   try {
     const { email, isLifetime } = await request.json();
-    console.log("🔹 Request received for:", email, "isLifetime:", isLifetime);
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });

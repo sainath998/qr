@@ -36,8 +36,6 @@ export async function POST(req) {
       { expiresIn: "7d" },
     );
 
-    console.log("user_token", user_token);
-
     return Response.json({ success: true, user, user_token }, { status: 201 });
   } catch (error) {
     console.error("❌ Error:", error.message);

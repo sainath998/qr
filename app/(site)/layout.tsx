@@ -1,6 +1,5 @@
 "use client";
 
-
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Lines from "@/components/Lines";
@@ -13,41 +12,35 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import ToasterContext from "../context/ToastContext";
 
-
-import {getUserDetails} from '@/utils/auth';
-
+import { getUserDetails } from "@/utils/auth";
 
 const clientId =
   "561932436702-5h1ci89mosgjdu6j1sraokaip98qvbnv.apps.googleusercontent.com";
-
-
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
   const userDetails = getUserDetails();
-  console.log('userDetails', userDetails);
-  
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>
-      <GoogleOAuthProvider clientId={clientId}>
-        <ThemeProvider
-          enableSystem={false}
-          attribute="class"
-          defaultTheme="light"
-        >
-          <Lines />
-          <Header />
-          <ToasterContext />
-          {children}
-          <Footer />
-          <ScrollToTop />
-        </ThemeProvider>
-      </GoogleOAuthProvider>
+        <GoogleOAuthProvider clientId={clientId}>
+          <ThemeProvider
+            enableSystem={false}
+            attribute="class"
+            defaultTheme="light"
+          >
+            <Lines />
+            <Header />
+            <ToasterContext />
+            {children}
+            <Footer />
+            <ScrollToTop />
+          </ThemeProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 
-import { handleLogin } from '@/utils/auth';
+import { handleLogin } from "@/utils/auth";
 
 import { jwtDecode } from "jwt-decode";
 
@@ -14,7 +14,7 @@ const handleGoogleResponse = async (res) => {
   // check if user exists in the database
   // if user exists, redirect to the dashboard
 
-  const response = await fetch("http://localhost:3000/api/auth/user", {
+  const response = await fetch(`/api/auth/user`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,11 +27,7 @@ const handleGoogleResponse = async (res) => {
   const data = await response.json(); // Extract JSON response
 
   // set it in cookie
-  console.log("response is ", data);
-  handleLogin(data.user_token)
-
-
-  
+  handleLogin(data.user_token);
 };
 
 const Signin = () => {

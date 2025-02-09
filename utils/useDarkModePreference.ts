@@ -69,7 +69,6 @@ export const useDarkModePreference = () => {
 
   // System preference change handler
   const updateDarkModePreferenceIfSystemPreferenceChanges = useCallback(() => {
-    console.log('updateDarkModePreferenceIfSystemPreferenceChanges', isDarkModePreferenceSetBySystem)
     if (isDarkModePreferenceSetBySystem) {
       updateUiBasedOnDarkMode()
     }

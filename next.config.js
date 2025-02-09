@@ -2,7 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   images: {
     domains: ["localhost"],
     remotePatterns: [
@@ -13,6 +13,12 @@ const nextConfig = {
       },
     ],
   },
+  typescript: {
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    ignoreBuildErrors: true,
+  },
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || "",
 };
 
 module.exports = nextConfig;

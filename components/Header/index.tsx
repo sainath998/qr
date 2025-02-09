@@ -14,10 +14,10 @@ const Header = () => {
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
 
-const userDetails = getUserDetails();
+  const userDetails = getUserDetails();
 
-              // @ts-ignore
-const isLogged = userDetails?.email ? true : false;
+  // @ts-ignore
+  const isLogged = userDetails?.email ? true : false;
 
   const pathUrl = usePathname();
 
@@ -29,8 +29,6 @@ const isLogged = userDetails?.email ? true : false;
       setStickyMenu(false);
     }
   };
-
-  console.log('userDetails?.profile_photo',userDetails?.profile_photo)
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
@@ -163,16 +161,23 @@ const isLogged = userDetails?.email ? true : false;
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
 
-            {!isLogged?(<Link
-              href="/auth/signin"
-              className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
-            >
-              Sign in
-            </Link>):(
+            {!isLogged ? (
+              <Link
+                href="/auth/signin"
+                className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
+              >
+                Sign in
+              </Link>
+            ) : (
               // @ts-ignore
               <>
-              {/* @ts-ignore */}
-              <img src={userDetails?.profile_photo} alt="user" width={24} height={24} />
+                {/* @ts-ignore */}
+                <img
+                  src={userDetails?.profile_photo}
+                  alt="user"
+                  width={24}
+                  height={24}
+                />
               </>
             )}
           </div>

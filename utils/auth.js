@@ -8,7 +8,6 @@ export const getUserDetails = () => {
   if (!user_token) {
     return null;
   }
-  console.log("jwtDecode(user_token)", jwtDecode(user_token));
 
   return jwtDecode(user_token);
 };

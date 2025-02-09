@@ -41,7 +41,7 @@ const Pricing = () => {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/payment/order", {
+      const response = await fetch(`/api/payment/order`, {
         // ✅ Call order API
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -62,8 +62,6 @@ const Pricing = () => {
 
   const user = getUserDetails();
 
-  console.log("user", user);
-
   const initializePayment = async (orderId: string) => {
     if (!user) return;
     const rzp1 = new window.Razorpay({
@@ -82,22 +80,19 @@ const Pricing = () => {
         };
 
         try {
-          const verifyResponse = await fetch(
-            "http://localhost:3000/api/subscription/verify",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(verifyData),
+          const verifyResponse = await fetch(`/api/subscription/verify`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
-          );
+            body: JSON.stringify(verifyData),
+          });
 
           if (verifyResponse.ok) {
             // alert("Payment successful!");
             // need to update the user subscription status in db
 
-            fetch("http://localhost:3000/api/user/update", {
+            fetch(`/api/user/update`, {
               email: user.email,
               subscription: selectedPlan,
             });
