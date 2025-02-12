@@ -8,6 +8,12 @@ import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
 import { getUserDetails } from "@/utils/auth";
+import {
+  Popover,
+  PopoverArrow,
+  PopoverContent,
+  PopoverTrigger,
+} from "@radix-ui/react-popover";
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -172,12 +178,26 @@ const Header = () => {
               // @ts-ignore
               <>
                 {/* @ts-ignore */}
-                <img
-                  src={userDetails?.profile_photo}
-                  alt="user"
-                  width={24}
-                  height={24}
-                />
+                <Popover>
+                  <PopoverTrigger>
+                    <img
+                      src={userDetails?.profile_photo}
+                      alt="user"
+                      width={24}
+                      height={24}
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <div className="grid gap-4">
+                      <div className="space-y-2">
+                        <h4 className="font-medium leading-none">Dimensions</h4>
+                        <p className="text-muted-foreground text-sm">
+                          Set the dimensions for the layer.
+                        </p>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </>
             )}
           </div>

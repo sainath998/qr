@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/db";
 import jwt from "jsonwebtoken";
 import User from "@/models/User";
+import { randomUUID } from "crypto";
 
 export async function POST(req) {
   try {
@@ -25,7 +26,7 @@ export async function POST(req) {
     const user_token = jwt.sign(
       {
         // random unique id
-        id: user._id,
+        id: randomUUID(),
         first_name: user.first_name,
         last_name: user.last_name,
         email: user.email,
@@ -35,6 +36,16 @@ export async function POST(req) {
       process.env.JWT_SECRET,
       { expiresIn: "7d" },
     );
+
+    console.log("signing data for ", {
+      // random unique id
+      id: user._id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      role: user.role,
+      profile_photo: user.picture,
+    });
 
     return Response.json({ success: true, user, user_token }, { status: 201 });
   } catch (error) {

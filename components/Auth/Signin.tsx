@@ -9,6 +9,7 @@ import { handleLogin } from "@/utils/auth";
 import { jwtDecode } from "jwt-decode";
 
 const handleGoogleResponse = async (res) => {
+  console.log("res", res);
   const user = jwtDecode(res.credential);
 
   // check if user exists in the database
@@ -17,7 +18,7 @@ const handleGoogleResponse = async (res) => {
   const response = await fetch(`/api/auth/user`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/jsoackan",
     },
     body: JSON.stringify({
       user,
@@ -25,6 +26,8 @@ const handleGoogleResponse = async (res) => {
   });
 
   const data = await response.json(); // Extract JSON response
+
+  console.log("data", data);
 
   // set it in cookie
   handleLogin(data.user_token);

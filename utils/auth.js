@@ -5,7 +5,9 @@ import { jwtDecode } from "jwt-decode";
 
 export const getUserDetails = () => {
   const { user_token } = parseCookies();
-  if (!user_token) {
+  console.log("user_token", !user_token);
+
+  if (!user_token || user_token === "undefined") {
     return null;
   }
 

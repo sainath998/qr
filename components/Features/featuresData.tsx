@@ -4,44 +4,51 @@ const featuresData: Feature[] = [
   {
     id: 1,
     icon: "/images/icon/icon-01.svg",
-    title: "Crafted for SaaS",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Presets",
+    description: "Pre-crafted QR code styles for quick customization.",
   },
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
-    title: "High-quality Design",
+    title: "Accessible",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Designed to be minimally WCAG A compliant for better usability.",
   },
   {
     id: 3,
     icon: "/images/icon/icon-03.svg",
-    title: "Next.js 13 + TypeScript",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Customizable",
+    description: "Adjust colors, styles, and more to fit your brand identity.",
   },
   {
     id: 4,
     icon: "/images/icon/icon-04.svg",
-    title: "Sanity Blog and Docs",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Export Options",
+    description: "Save QR codes in SVG or PNG format for easy sharing.",
   },
   {
     id: 5,
     icon: "/images/icon/icon-05.svg",
-    title: "DB, Auth and Stripe",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Copy to Clipboard",
+    description: "Quickly copy QR codes to paste them anywhere you need.",
   },
   {
     id: 6,
     icon: "/images/icon/icon-06.svg",
-    title: "Regular Free Updates",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+    title: "Theme Modes",
+    description: "Toggle between light, dark, or system preference mode.",
+  },
+  {
+    id: 7,
+    icon: "/images/icon/icon-07.svg",
+    title: "Save & Load",
+    description: "Easily save and reload QR code configurations for later use.",
+  },
+  {
+    id: 8,
+    icon: "/images/icon/icon-08.svg",
+    title: "Custom Logo",
+    description: "Upload your own image to personalize QR codes with a logo.",
   },
 ];
 
